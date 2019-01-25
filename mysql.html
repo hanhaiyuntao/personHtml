@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sql测试</title>
+    <style>
+        div{width:800px;margin: 0 auto;}
+        table {border-collapse:collapse;border-spacing:0;width:800px;}
+        table tr td ,table tr th {border-top:solid 1px #ccc;border-left:solid 1px #ccc;line-height: 40px;text-align: center;}
+        table tr td:last-child, table tr th:last-child {border-right:solid 1px #ccc;}
+        table tr:last-child td{border-bottom:solid 1px #ccc;}
+        a{text-decoration: none;font-size: 14px;}
+        .text{width:150px;}
+        .clearfix:after {
+            content: " ";
+            display: block;
+            clear: both;
+            height: 0;
+        }
+        .pull-left{
+            float:left;
+        }
+        .pull-right{
+            float:right;
+        }
+        .modal{
+           width:100%;
+            height:100%;
+            position: fixed;
+            left:0;
+            top:0;
+            background: rgba(0,0,0,0.3);
+            display: none;
+        }
+        .model-content{
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -200px;
+            margin-top: -175px;
+            width:400px;
+            height:350px;
+            background: #fff;
+            padding:15px;
+        }
+        .model-foot{
+            width:100%;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="clearfix">
+
+    <div style="float: left;width:90%;">
+
+            名称：<input type="text" id="search" value="" class="text"> &nbsp;&nbsp;
+            描述：<input type="text" id="intro"  value=""  class="text"> &nbsp;&nbsp;
+            <button  onclick="search()">查询</button>
+
+    </div>
+    <div style="float: right;width:10%;">
+        <a href="javascript:void(0)" onclick="addModel()">新增</a>
+    </div>
+</div>
+<div style="margin-top: 5px">
+   <table >
+       <thead >
+       <tr>
+           <td>商品名称</td>
+           <td>商品描述</td>
+           <td>商品价格</td>
+           <td>商品数量</td>
+           <td>操作</td>
+       </tr>
+       </thead>
+       <tbody id="sqlTable">
+
+       </tbody>
+   </table>
+</div>
+
+
+<div class="modal">
+    <div class="model-content">
+        <p id="model-title">新增数据</p>
+        <div class="model-body">
+            <p style="display:none">
+                <input type="text" id="proId">
+            </p>
+            <p>
+                <span>商品名称:</span>
+                <input type="text" id="proName">
+                <span>*</span>
+            </p>
+            <p>
+                <span>商品描述:</span>
+                <input type="text" id="proIntro">
+                <span>*</span>
+            </p>
+            <p>
+                <span>商品价格:</span>
+                <input type="text" id="proPrice">
+                <span>*</span>
+            </p>
+        </div>
+        <div class="model-foot clearfix">
+            <button class="pull-left" onclick="addSure()">确认</button>
+            <button class="pull-right" onclick="addCancel()">取消</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="./assets/js/jquery-1.11.1.js"></script>
+<script src="./assets/js/mysql.js"></script>
+
+</body>
+</html>

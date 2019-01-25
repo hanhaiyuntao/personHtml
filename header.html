@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>公共头部</title>
+    <link rel="stylesheet" href="./assets/css/comment.css">
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- 小屏幕导航按钮和LOGO -->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand"><img src="./assets/img/logo.png" alt=""></a>
+        </div>
+        <!-- 小屏幕导航按钮和LOGO -->
+        <!-- 大屏幕导航 -->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" id="nav">
+                <li><a href="index.html?num=0">首页</a></li>
+                <li><a href="about.html?num=1">关于我们</a></li>
+                <li><a href="service_items.html?num=2">服务项目</a></li>
+                <li><a href="case_list.html?num=3">案例展示</a></li>
+                <li><a href="contact_us.html?num=4">联系我们</a></li>
+                <li>
+                    <p class="aLogin" id="loginOne"><span class="gusture" id="userLogin" onclick="login()">登录 </span></p>
+                    <p class="aLogin " style="display:none" id="loginTwo">欢迎您:<span id="userName">--</span>|<span class="gusture" id="exit">注销</span></p>
+                </li>
+            </ul>
+        </div>
+        <!-- 大屏幕导航 -->
+    </div>
+</nav>
+<!--导航-->
+
+
+<script>
+    $(function(){
+        var userName = getCookie('name');
+       // var s_userName = sessionStorage.getItem("s_name");
+
+        if(userName!=null&&userName!=''&&userName!='null'){
+            $("#loginOne").css("display","none");
+            $("#loginTwo").css("display","block");
+            $("#userName").html(userName);
+        }
+//
+//        if(s_userName!=null&&s_userName!=''&&s_userName!='null'){
+//            console.log('222')
+//            $("#loginOne").css("display","none");
+//            $("#loginTwo").css("display","block");
+//            $("#userName").html(s_userName);
+//        }
+
+    });
+    //获取cookie
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) {
+            return unescape(arr[2]);
+        } else {
+            return null;
+        }
+    }
+    //删除cookie
+    function delCookie(name)
+    {
+        var exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        var cval=getCookie(name);
+        if(cval!=null)
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+    }
+
+//获取url参数
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = decodeURI(window.location.search).substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
+}
+
+var activeNum = getQueryString('num');
+if(activeNum!=null&&activeNum!='null'){
+    $("#nav>li").removeClass("on");
+    $("#nav>li").eq(activeNum).children().addClass("on");
+}else{
+    $("#nav>li").eq(0).children().addClass("on");
+}
+function login(){
+    window.location.href='login.html'
+}
+
+
+
+    $("#exit").click(function(){
+        delCookie('name');
+//        sessionStorage.removeItem('s_name');
+        window.location.href='index.html';
+        $("#loginOne").css("display","block");
+        $("#loginTwo").css("display","none");
+    })
+</script>
+</body>
+</html>

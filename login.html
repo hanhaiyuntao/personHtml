@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="description" content="王海涛个人网站">
+    <meta name="keywords" content="王海涛, 个人博客, 个人网站,首页, web前端,JavaScript,css,html">
+    <meta name="author" content="王海涛,WangHaitao">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="./assets/css/comment.css">
+    <link rel="stylesheet" href="./assets/css/loginbase.css">
+    <link rel="stylesheet" href="./assets/css/loginreg.css">
+</head>
+<body>
+<div id="ajax-hook"></div>
+<div class="wrap">
+    <div class="wpn">
+        <div class="form-data pos">
+            <a href="http://www.hanhaiyuntao.top/" target="_blank"><img src="./assets/img/login/logo.png" class="head-logo"></a>
+            <div class="change-login">
+                <p class="account_number on">账号登录</p>
+                <p class="message">账号注册</p>
+            </div>
+            <div class="form1 formId">
+                <p class="p-input pos">
+                    <input type="text" id="logName2" class="newInput" placeholder="请输入名称">
+                    <span class="tel-warn num2-err hide" id="noLogName"><em>名称不能为空</em></span>
+                </p>
+
+
+                <p class="p-input pos">
+                    <input type="password" id="logPsw" class="newInput" placeholder="请输入密码">
+                    <span class="tel-warn num2-err hide" id="noLogPsw"><em>密码不能为空</em></span>
+                </p>
+                <div class="r-forget cl">
+                    <p class="pull-left clearfix"><input type="checkbox" class="pull-left mt3" id="loginCheck"><label class="pull-right ml5"  for="loginCheck">保存密码</label></p>
+                    <a href="#" id="regCheck" class="pull-right">账号注册</a>
+                </div>
+                <button class="lang-btn log-btn" id="login" onclick="login()" >登录</button>
+            </div>
+            <div class="form2 formId hide">
+                <p class="p-input pos">
+                    <input type="text" id="name2" class="newInput" placeholder="请输入注册名称">
+                    <span class="tel-warn num2-err hide" id="noRegName"><em>名称不能为空</em></span>
+                </p>
+
+
+                <p class="p-input pos">
+                    <input type="text" id="password2" class="newInput" placeholder="请输入注册密码">
+                    <span class="tel-warn num2-err hide" id="noRegPsw"><em>密码不能为空</em></span>
+                </p>
+                <div class="reg_checkboxline pos">
+
+                    <input type="checkbox" class="pull-left " id="inputCheck" >
+                    <label class="newLabel" for="inputCheck" style="position: static;margin-left: 10px;">我已阅读并接受 <a href="#">《瀚海云涛协议说明》</a></label>
+                </div>
+                <button class="lang-btn log-btn" id="register" onclick="register()">注册</button>
+            </div>
+
+
+            <p class="right">Powered by © 2018</p>
+        </div>
+    </div>
+</div>
+<script src="./assets/js/jquery-1.11.1.js"></script>
+<script src="assets/login/login.js"></script>
+
+
+</body>
+</html>

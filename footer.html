@@ -7,6 +7,15 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>新闻列表</title>
     <!-- Bootstrap -->
+    <style>
+      .returnTop{
+        position: fixed;
+        bottom:150px;
+        right:50px;
+        cursor: pointer;
+        display:none
+      }
+    </style>
   </head>
   <body>
 
@@ -22,8 +31,8 @@
     <div class="container">
        <div class="row">
          <div class="col-sm-5">
-           北京市<br />
-github：***********<br />
+           <a style="color:#fff" href="https://github.com/hanhaiyuntao" target="_blank">github：https://github.com/hanhaiyuntao </a>
+<br />
 地址：北京市<br />
 邮编：100000
          </div>
@@ -52,5 +61,41 @@ github：***********<br />
         <p>京ICP备18064376号 </p>
       </div>
       </div>
+
+  <img onclick="returnTop()" class="returnTop" src="./assets/img/footer/returnTop.png"   alt="">
+  <script>
+    window.onload = function () {
+      //页面内容不够让footer固定底部显示
+      $(".foot_wrap").css({ 'display': 'block' });
+      if (document.body.clientHeight < window.innerHeight) {
+        $(".foot_wrap").css({ 'position': 'fixed', 'bottom': '0', 'width': '100%' });
+      }
+      controllFooter();
+    };
+    //判定页面内容是否超出屏幕
+    function controllFooter() {
+      if ($(window).height() < $(document).height()) {
+
+        $(".foot_wrap").css('position', 'static');
+
+      } else {
+        $(".foot_wrap").css({ 'position': 'fixed', 'bottom': '0' });
+      }
+    }
+
+    controllFooter();
+
+    $(window).scroll(function(){
+      if($(this).scrollTop() > 2000){
+        $('.returnTop').fadeIn();
+      }else{
+        $('.returnTop').fadeOut();
+      }
+    });
+    //回到顶部
+    function returnTop(){
+      $("html,body").animate({scrollTop:0},'300')
+    }
+  </script>
   </body>
 </html>

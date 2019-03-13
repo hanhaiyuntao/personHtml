@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>新闻列表</title>
+    <title>尾部 | 瀚海云涛尾部</title>
     <!-- Bootstrap -->
     <style>
       .returnTop{
@@ -15,6 +15,13 @@
         cursor: pointer;
         display:none
       }
+      #landlord {
+          position: fixed;
+          right: 30px;
+          bottom: 0;
+          width: 280px;
+          height: 250px;
+      }
     </style>
   </head>
   <body>
@@ -22,48 +29,246 @@
   <!-- 腰线2 -->
   <!--<div class="waist_line2"></div>-->
   <!-- 底部 -->
-  <div class="footer visible-lg">
-    <p style="text-align: center;color:#fff">
-  如有侵权，请提供相关版权证明发给本站邮箱，审核属实后将会立即删除。<br />
-  所有资源均为本人收录，来自于互联网相关站点搜索结果信息。<br />
-  （本网站不作为商业用途,仅供学习/测试/交流）
-    </p>
-    <div class="container">
-       <div class="row">
-         <div class="col-sm-5">
-           <a style="color:#fff" href="https://github.com/hanhaiyuntao" target="_blank">github：https://github.com/hanhaiyuntao </a>
-<br />
-地址：北京市<br />
-邮编：100000
-         </div>
-         <div class="col-sm-4">
-           E-mail：hanhaiyuntao55@163.com<br />
-网址：<a style="color:#fff" href="http://www.hanhaiyuntao.top" target="_blank">http://www.hanhaiyuntao.top</a><br />
-版权：北京市<br />
-备案：京ICP备18064376
-         </div>
-         <div class="col-sm-3">
-           <img src="./assets/img/code.jpg"  alt="">
-           <p>扫一扫，了解下</p>
-         </div>
-       </div>
-    </div>
-  </div>
-  <div class="copyright visible-lg">
-    <div class="container">Copyright@2017 北京市
-  </div>
+  <div class="foot_wrap">
 
-  </div>
+    <div class="footer visible-lg">
+      <p style="text-align: center;color:#fff">
+        如有侵权，请提供相关版权证明发给本站邮箱，审核属实后将会立即删除。<br />
+        所有资源均为本人收录，来自于互联网相关站点搜索结果信息。<br />
+        （本网站不作为商业用途,仅供学习/测试/交流）
+      </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <a style="color:#fff" href="https://github.com/hanhaiyuntao" target="_blank">github：https://github.com/hanhaiyuntao </a>
+            <br />
+            地址：北京市<br />
+            邮编：100000
+          </div>
+          <div class="col-sm-4">
+            E-mail：hanhaiyuntao55@163.com<br />
+            网址：<a style="color:#fff" href="http://www.hanhaiyuntao.top" target="_blank">http://www.hanhaiyuntao.top</a><br />
+            版权：北京市<br />
+            备案：京ICP备18064376
+          </div>
+          <div class="col-sm-3">
+            <img src="./assets/img/code.jpg"  alt="">
+            <p>扫一扫，了解下</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright visible-lg">
+      <div class="container">Copyright@2017 北京市
+      </div>
+
+    </div>
     <div class="copyright visible-xs">
       <div class="container">
         <p>版权所有 北京市</p>
         <p>仅供学习交流,禁商用</p>
         <p>京ICP备18064376号 </p>
       </div>
-      </div>
+    </div>
+  </div>
 
+<!--回到顶部-->
   <img onclick="returnTop()" class="returnTop" src="./assets/img/footer/returnTop.png"   alt="">
+<!--2d妹纸-->
+  <div id="landlord">
+      <canvas id="live2d" width="280" height="250"></canvas>
+  </div>
+  <script src="assets/js/live2d.js"></script>
   <script>
+
+      var data=
+      {
+          "idle": [
+              {
+                  "file": "motions/WakeUp.mtn",
+                  "sound": "audio/wakeUp.mp3"
+              },
+              {
+                  "file": "motions/Breath1.mtn",
+                  "sound": "audio/breath1.mp3"
+              },
+              {
+                  "file": "motions/Breath2.mtn",
+                  "sound": "audio/breath2.mp3"
+              },
+              {
+                  "file": "motions/Breath3.mtn",
+                  "sound": "audio/breath3.mp3"
+              },
+              {
+                  "file": "motions/Breath4.mtn",
+                  "sound": "audio/breath4.mp3"
+              },
+              {
+                  "file": "motions/Breath5.mtn",
+                  "sound": "audio/breath5.mp3"
+              },
+              {
+                  "file": "motions/Breath6.mtn",
+                  "sound": "audio/breath6.mp3"
+              },
+              {
+                  "file": "motions/Breath7.mtn",
+                  "sound": "audio/breath7.mp3"
+              },
+              {
+                  "file": "motions/Breath8.mtn",
+                  "sound": "audio/breath8.mp3"
+              },
+              {
+                  "file": "motions/Breath9.mtn",
+                  "sound": "audio/breath9.mp3"
+              }
+          ],
+          "sleepy": [
+              {
+                  "file": "motions/Sleeping.mtn"
+              }
+          ],
+          "flick_head": [
+              {
+                  "file": "motions/Touch Dere1.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere2.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere3.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere4.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere5.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere6.mtn",
+                  "sound": "audio/dere6.mp3"
+              }
+          ],
+          "tap_body": [
+              {
+                  "file": "motions/Touch1.mtn",
+                  "sound": "audio/touch1.mp3"
+              },
+              {
+                  "file": "motions/Touch2.mtn",
+                  "sound": "audio/touch2.mp3"
+              },
+              {
+                  "file": "motions/Touch3.mtn",
+                  "sound": "audio/touch3.mp3"
+              },
+              {
+                  "file": "motions/Touch4.mtn",
+                  "sound": "audio/touch4.mp3"
+              },
+              {
+                  "file": "motions/Touch5.mtn",
+                  "sound": "audio/touch5.mp3"
+              },
+              {
+                  "file": "motions/Touch6.mtn",
+                  "sound": "audio/touch6.mp3"
+              }
+          ],
+          "tap_Breath": [
+              {
+                  "file": "motions/Breath1.mtn"
+              },
+              {
+                  "file": "motions/Breath2.mtn"
+              },
+              {
+                  "file": "motions/Breath3.mtn"
+              },
+              {
+                  "file": "motions/Breath4.mtn"
+              },
+              {
+                  "file": "motions/Breath5.mtn"
+              },
+              {
+                  "file": "motions/Breath6.mtn"
+              },
+              {
+                  "file": "motions/Breath7.mtn"
+              },
+              {
+                  "file": "motions/Breath8.mtn"
+              },
+              {
+                  "file": "motions/Breath9.mtn"
+              },
+              {
+                  "file": "motions/Fail.mtn"
+              },
+              {
+                  "file": "motions/Sleeping.mtn"
+              },
+              {
+                  "file": "motions/Success.mtn"
+              },
+              {
+                  "file": "motions/Sukebei1.mtn"
+              },
+              {
+                  "file": "motions/Sukebei2.mtn"
+              },
+              {
+                  "file": "motions/Sukebei3.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere1.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere2.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere3.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere4.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere5.mtn"
+              },
+              {
+                  "file": "motions/Touch Dere6.mtn"
+              },
+              {
+                  "file": "motions/Touch1.mtn"
+              },
+              {
+                  "file": "motions/Touch2.mtn"
+              },
+              {
+                  "file": "motions/Touch3.mtn"
+              },
+              {
+                  "file": "motions/Touch4.mtn"
+              },
+              {
+                  "file": "motions/Touch5.mtn"
+              },
+              {
+                  "file": "motions/Touch6.mtn"
+              },
+              {
+                  "file": "motions/WakeUp.mtn"
+              }
+          ]
+      }
+
+
+      /*加载2d妹纸*/
+      loadlive2d("live2d", "./assets/wife/model.json");
+
     window.onload = function () {
       //页面内容不够让footer固定底部显示
       $(".foot_wrap").css({ 'display': 'block' });
@@ -84,7 +289,7 @@
     }
 
     controllFooter();
-
+    /*判断scroll>2000显示回到顶部*/
     $(window).scroll(function(){
       if($(this).scrollTop() > 2000){
         $('.returnTop').fadeIn();
